@@ -96,13 +96,7 @@ html, body {
     50% { transform: rotate(1.5deg); } 
 }
 
-/* Căn chỉnh lại vị trí cây trên màn hình điện thoại cho phù hợp */
-@media (max-width: 600px) {
-    #treeImage {
-        width: 150px;
-        left: calc(50% - 130px);
-    }
-}
+
 
 /* --- Nút bật/tắt nhạc --- */
 #musicToggle {
