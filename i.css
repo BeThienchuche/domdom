@@ -82,7 +82,7 @@ html, body {
     position: fixed;
     bottom: -60px;
     /* Dùng calc() để đặt cây luôn nằm cách cặp đôi một khoảng cố định về bên trái */
-    left: calc(50% - 720px); 
+    left: calc(50% - 700px); 
     width: 1050px; /* Độ to của cái cây (Bạn có thể tăng giảm số này) */
     z-index: 99; /* Nằm ngay sau cặp đôi (999) và trước đom đóm (3) */
     pointer-events: none;
@@ -122,30 +122,4 @@ html, body {
 #musicToggle:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.1); /* Hơi to lên khi di chuột vào */
-}
-@media (max-width: 600px) {
-    /* 1. Kéo mặt trăng xuống một chút để không vướng tai thỏ iPhone */
-    .moon {
-        top: 45px; 
-        right: 20px;
-        width: 75px;
-        height: 75px;
-    }
-
-
-    /* 3. Thu nhỏ cái cây và căn chỉnh lại sát bên trái cặp đôi */
-    #treeImage {
-        width: 650px;           /* Thu nhỏ cây lại cho vừa màn hình hẹp */
-        bottom: -30px;          /* Hạ gốc cây xuống 1 chút */
-        left: calc(50% - 380px); /* Đẩy cây sang trái để nhường chỗ cho cặp đôi */
-    }
-
-    /* 4. Thu nhỏ nút nhạc và đẩy lên cao 1 xíu tránh thanh vuốt Home của iPhone */
-    #musicToggle {
-        bottom: 20px; 
-        left: 20px;
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-    }
 }
