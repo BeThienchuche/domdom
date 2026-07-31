@@ -82,7 +82,7 @@ html, body {
     position: fixed;
     bottom: -60px;
     /* Dùng calc() để đặt cây luôn nằm cách cặp đôi một khoảng cố định về bên trái */
-    left: calc(50% - 710px); 
+    left: calc(50% - 680px); 
     width: 1050px; /* Độ to của cái cây (Bạn có thể tăng giảm số này) */
     z-index: 99; /* Nằm ngay sau cặp đôi (999) và trước đom đóm (3) */
     pointer-events: none;
