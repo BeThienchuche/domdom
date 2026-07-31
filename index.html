@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="i.css">
+</head>
+<body>
+    <div class="stage">
+        <!-- Canvas 1: Đom đóm (Nằm dưới cùng) -->
+        <canvas id="canvas"></canvas>
+        
+        <!-- Canvas 2: Bầu trời sao (Nằm trên đom đóm) -->
+        <canvas id="starfield"></canvas>
+        
+        <!-- Mặt trăng -->
+        <div class="moon"></div>
+    </div>
+    <!-- Ảnh cây -->
+    <img id="treeImage" src="cay.png" alt="Cây">
+    <!-- Ảnh avatar cặp đôi -->
+    <img id="coupleImage" src="a.png" alt="Cặp đôi ngắm trăng">
+    <!-- Thẻ chứa nhạc nền -->
+    <audio id="bgMusic" loop>
+        <!-- Bạn đổi tên nhac.mp3 thành tên file nhạc thực tế của bạn nhé -->
+        <source src="nhac.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Nút bật/tắt nhạc góc dưới trái -->
+    <div id="musicToggle">🔈</div>
+    <script src="i.js"></script>
+</body> 
+</html>

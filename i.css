@@ -1,0 +1,131 @@
+/* --- Cài đặt cơ bản --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #060614; /* Nền đen đêm tối */
+    overflow: hidden;
+}
+
+.stage {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* --- Xếp lớp 2 Canvas --- */
+#canvas, #starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#canvas {
+    z-index: 9999; /* Đom đóm nằm dưới */
+    filter: blur(1px); /* Làm mờ đom đóm theo code của bạn */
+}
+
+#starfield {
+    z-index: 2; /* Sao nằm trên đom đóm */
+    pointer-events: none; /* Không cản tương tác chuột */
+}
+
+/* --- Mặt trăng --- */
+.moon {
+    position: fixed;
+    top: 40px;
+    right: 60px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 30% 30%, #fff 0%, #fffbe6 45%, #ffe9a8 100%),
+        repeating-radial-gradient(circle at 60% 60%, rgba(220,200,120,0.12) 0px, rgba(220,200,120,0.12) 8px, transparent 12px, transparent 20px);
+    box-shadow:
+        0 0 40px 20px rgba(255, 230, 120, 0.55),
+        0 0 80px 40px rgba(255, 220, 80, 0.25),
+        0 0 30px rgba(255, 255, 210, 0.7),
+        0 0 60px rgba(255, 240, 200, 0.4);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Kích thước mặt trăng trên điện thoại */
+@media (max-width: 600px) {
+    .moon {
+        top: 14px;
+        right: 14px;
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* --- Ảnh cặp đôi đung đưa --- */
+#coupleImage {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; 
+    opacity: 0.95;
+    z-index: 999;
+    pointer-events: none;
+    animation: gentleSwing 4s ease-in-out infinite;
+}
+
+
+/* --- Ảnh cái cây --- */
+#treeImage {
+    position: fixed;
+    bottom: -60px;
+    /* Dùng calc() để đặt cây luôn nằm cách cặp đôi một khoảng cố định về bên trái */
+    left: calc(50% - 720px); 
+    width: 1050px; /* Độ to của cái cây (Bạn có thể tăng giảm số này) */
+    z-index: 99; /* Nằm ngay sau cặp đôi (999) và trước đom đóm (3) */
+    pointer-events: none;
+    transform-origin: bottom center; /* Lấy gốc rễ cây làm tâm đung đưa */
+    animation: treeWind 7s ease-in-out infinite; /* Cây đung đưa chậm theo gió */
+}
+
+/* Hiệu ứng gió thổi cây đung đưa rất nhẹ */
+@keyframes treeWind {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(1.5deg); } 
+}
+
+/* Căn chỉnh lại vị trí cây trên màn hình điện thoại cho phù hợp */
+@media (max-width: 600px) {
+    #treeImage {
+        width: 150px;
+        left: calc(50% - 130px);
+    }
+}
+
+/* --- Nút bật/tắt nhạc --- */
+#musicToggle {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.15); /* Nền mờ trong suốt */
+    backdrop-filter: blur(5px); /* Hiệu ứng kính mờ */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 99000; /* Luôn nổi lên trên cùng để dễ bấm */
+    transition: all 0.3s ease;
+    user-select: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#musicToggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1); /* Hơi to lên khi di chuột vào */
+}
